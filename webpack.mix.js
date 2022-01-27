@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 
+let Asset_version = Date.now().toString(); // grab latest asset version
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,7 +12,5 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.sass('resources/css/app.scss', 'public/css/').version(Asset_version)
+mix.babel('resources/js/app.js', 'public/js/app.js').version(Asset_version);
