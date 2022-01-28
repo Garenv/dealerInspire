@@ -15,13 +15,14 @@ class ContactFormTest extends TestCase
      */
     public function test_can_post_contact_form_data()
     {
+
         $formData = [
-            'full_name'          => 'garenvartanian',
-            'email'              => 'test@gmail.com',
-            'phone_number'       => 'fjsjoifidjodfjiosfid',
-            'message'            => 'test'
+            'fullName'          => 'some name',
+            'email'             => 'testmail@gmail.com',
+            'phoneNumber'       => '7186186921',
+            'message'           => 'test'
         ];
 
-        $this->post(route('post_data'), $formData)->assertStatus(200);
+        $this->followingRedirects()->post(route('post_data'), $formData)->assertStatus(200);
     }
 }

@@ -15,13 +15,13 @@
 
 @if(session()->has('success'))
     <div class="alert alert-success" role="alert">
-        This is a success alert—check it out!
+        {{ session()->get('success') }}
     </div>
 @endif
 
 @if(session()->has('failed'))
     <div class="alert alert-success" role="alert">
-        This failed
+        {{ session()->get('failed') }}
     </div>
 @endif
 

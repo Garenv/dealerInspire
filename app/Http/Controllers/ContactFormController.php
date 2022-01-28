@@ -13,10 +13,6 @@ class ContactFormController extends Controller
         return view('index');
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function store(Request $request) {
         $fullName                = $request->get('fullName');
         $email                   = $request->get('email');
@@ -26,7 +22,8 @@ class ContactFormController extends Controller
         // Validating
         $request->validate([
             'fullName'           => 'required',
-            'email'              => 'required',
+            'email'              => 'required|email',
+            'phoneNumber'        => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'message'            => 'required',
         ]);
 
@@ -42,10 +39,11 @@ class ContactFormController extends Controller
         $storeData = ContactForm::create($data); // Store copy of the data in the DB
 
         if(!$storeData) {
-            return redirect()->back()->with('failed', 'not submitted!');
+            return response()->json(['status' => 'failed'], 401);
         }
 
-        return redirect()->back()->with('success', 'Submitted successfully!');
+
+        return redirect()->back()->with('success', 'Successfully Submitted! 🙂')->setStatusCode(200);
 
     }
 
