@@ -1,9 +1,6 @@
 <?php
 
 namespace Tests\Feature;
-
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ContactFormTest extends TestCase
@@ -17,12 +14,15 @@ class ContactFormTest extends TestCase
     {
 
         $formData = [
-            'fullName'          => 'some name',
+            'fullName'          => 'somename',
             'email'             => 'testmail@gmail.com',
-            'phoneNumber'       => '7186186921',
-            'message'           => 'test'
+            'phoneNumber'       => '7184568970',
+            'message'           => 'testtesttests'
         ];
 
+        // Since we're redirecting back to the main page upon user submission
+        // we'll need to use followingRedirects() along with setStatusCode(200) and setStatusCode(200)
+        // which can be found in the ContactFormController.php file.
         $this->followingRedirects()->post(route('post_data'), $formData)->assertStatus(200);
     }
 }

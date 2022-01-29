@@ -1,6 +1,6 @@
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
-$yellow:#f5ba1a;
+$purple:#532380;
 $black:#000000;
 $grey:#cccccc;
 
@@ -9,6 +9,12 @@ body {
     font-size: 14px;
     background: #f2f2f2;
 }
+
+form {
+    display: block;
+    margin: 0 auto;
+}
+
 .clearfix {
     &:after {
         content: "";
@@ -27,7 +33,7 @@ body {
     margin: 8% auto 0;
     position: relative;
     z-index: 1;
-    border-top: 5px solid $yellow;
+    border-top: 5px solid $purple;
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -115,11 +121,11 @@ body {
             -webkit-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
             -moz-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
             box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-            border: 1px solid $yellow;
+            border: 1px solid $purple;
             background: #fafafa;
         }
         &[type="submit"] {
-            background: $yellow;
+            background: $purple;
             height: 35px;
             line-height: 35px;
             width: 100%;
@@ -134,10 +140,10 @@ body {
             -ms-transition: all 0.30s ease-in-out;
             transition: all 0.30s ease-in-out;
             &:hover {
-                background: darken($yellow,7%);
+                background: darken($purple,7%);
             }
             &:focus {
-                background: darken($yellow,7%);
+                background: darken($purple,7%);
             }
         }
         &[type="checkbox"], &[type="radio"] {
@@ -288,9 +294,9 @@ body {
     z-index: 1;
     text-align: center;
     padding: 15px;
-    color: $yellow;
+    color: $purple;
     a {
-        color: darken($yellow,7%);
+        color: darken($purple,7%);
     }
 }
 @-webkit-keyframes check {
